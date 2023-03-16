@@ -17,10 +17,27 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
-        <div class="container-lg"><h1><center>Hello World!</center></h1>
-                <h1><% String num = request.getParameter("num");%></h1>
+    <body class="bg-success">
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+      <div class="navbar-brand text-center"> <h1>Numeritos</h1></div>
+  </div>
+        </nav>
+   
+     
                 <div class="container-lg">
+                    <div class figure-center>
+                         <div class="container">
+  <div class="row align-items-center">
+    <div class="col-6 align-items-center">
+                <h1><% String num = request.getParameter("num");%></h1>
+                
+                <div class="card text-center bg-light" style="width: 18rem; ">
+                    <div class="card-header">
+                      <%=num%>
+                    </div>
+                </div>
                 
                 <%
                     int numero=0;
@@ -35,29 +52,50 @@
                             int numerosAle=(int)(Math.random() * 100);
                             numAle.add(numerosAle);
                 %>
-                <h1>El numero es: <%=numerosAle%></h1>
+                <div class="card bg-dark" style="width: 18rem;">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">El numero es: <%=numerosAle%> </li>
+                    </ul>
+                </div>
                 <%
                     }
                     Collections.sort(numAle);
                 %>
-                <h2>Los numero ordenados son:</h2>
-                <ul>
+                </div>
+                
+                <div class="col-6 align-items-center">
+                    <br><br><br>
+                <div class="card text-center bg-light text-dark" style="width: 18rem;">
+                    <div class="card-header">
+                      Los numero ordenados son:
+                    </div>
+                </div>
+                
                 <%
                     for(int numeAle : numAle){ %>
-                    <li><h2><%out.print(numeAle);%></h2></li>
-                <%
-                    }
-                    }
-                    else{
-                %>
-                    <h1>Sin dato</h1>
-                <%
-                    }
-                %>
+                    <div class="card bg-dark" style="width: 18rem;">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><%out.print(numeAle);%></li>
+                    </ul>
                 </div>
-                <a href="Jsp2.jsp">Ir a Jsp2</a>
+                <%
+                    }
+                    }
+                    
+                %>
+                    
                 
-      </div>
-       
+                <div class="card bg-light" style="width: 18rem;">
+                 <div class="card-body">
+                        <a href="Jsp2.jsp" class="card-link">Ir a Jsp2</a>
+                  </div>
+                </div>
+                </div>
+                </div>
+  </div>
+</div>
+                
+                
+                
     </body>
 </html>
